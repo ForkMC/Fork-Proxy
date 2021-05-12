@@ -1,0 +1,2532 @@
+From 43322c7759e2ac0135fbd5bf154a6768183f7399 Mon Sep 17 00:00:00 2001
+From: Benno van Dorst <info@bennocraft.net>
+Date: Sun, 16 Feb 2020 16:45:16 -0600
+Subject: [PATCH] Minecraft 1.16 Support
+
+
+diff --git a/api/pom.xml b/api/pom.xml
+index 07897a44..c0269379 100644
+--- a/api/pom.xml
++++ b/api/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-api</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-API</name>
+diff --git a/bootstrap/pom.xml b/bootstrap/pom.xml
+index c52bda72..d9e302a5 100644
+--- a/bootstrap/pom.xml
++++ b/bootstrap/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-bootstrap</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Bootstrap</name>
+diff --git a/chat/pom.xml b/chat/pom.xml
+index 340f5bb5..1cd23a81 100644
+--- a/chat/pom.xml
++++ b/chat/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-chat</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Chat</name>
+diff --git a/config/pom.xml b/config/pom.xml
+index aecc12bd..072ceff7 100644
+--- a/config/pom.xml
++++ b/config/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-config</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Config</name>
+diff --git a/event/pom.xml b/event/pom.xml
+index e240b786..6eeb3761 100644
+--- a/event/pom.xml
++++ b/event/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-event</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Event</name>
+diff --git a/log/pom.xml b/log/pom.xml
+index 5c5cd781..0c88d5eb 100644
+--- a/log/pom.xml
++++ b/log/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-log</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Log</name>
+diff --git a/log4j/pom.xml b/log4j/pom.xml
+index 1042e092..1fa1a224 100644
+--- a/log4j/pom.xml
++++ b/log4j/pom.xml
+@@ -5,13 +5,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-log4j</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Log</name>
+diff --git a/module/cmd-alert/pom.xml b/module/cmd-alert/pom.xml
+index f9c9969a..c16883a9 100644
+--- a/module/cmd-alert/pom.xml
++++ b/module/cmd-alert/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-module</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module-cmd-alert</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>cmd_alert</name>
+diff --git a/module/cmd-find/pom.xml b/module/cmd-find/pom.xml
+index eccc6959..343d99d4 100644
+--- a/module/cmd-find/pom.xml
++++ b/module/cmd-find/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-module</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module-cmd-find</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>cmd_find</name>
+diff --git a/module/cmd-list/pom.xml b/module/cmd-list/pom.xml
+index b877613f..be734be5 100644
+--- a/module/cmd-list/pom.xml
++++ b/module/cmd-list/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-module</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module-cmd-list</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>cmd_list</name>
+diff --git a/module/cmd-send/pom.xml b/module/cmd-send/pom.xml
+index 6aead5e4..b776f439 100644
+--- a/module/cmd-send/pom.xml
++++ b/module/cmd-send/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-module</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module-cmd-send</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>cmd_send</name>
+diff --git a/module/cmd-server/pom.xml b/module/cmd-server/pom.xml
+index 0ef0b9fd..66ec198e 100644
+--- a/module/cmd-server/pom.xml
++++ b/module/cmd-server/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-module</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module-cmd-server</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>cmd_server</name>
+diff --git a/module/pom.xml b/module/pom.xml
+index 838adbce..ea62aa04 100644
+--- a/module/pom.xml
++++ b/module/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>pom</packaging>
+ 
+     <name>ForkMC Modules</name>
+diff --git a/module/reconnect-yaml/pom.xml b/module/reconnect-yaml/pom.xml
+index 265946dc..c804d17d 100644
+--- a/module/reconnect-yaml/pom.xml
++++ b/module/reconnect-yaml/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-module</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-module-reconnect-yaml</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>reconnect_yaml</name>
+diff --git a/native/pom.xml b/native/pom.xml
+index d0a68650..f0fcb2f8 100644
+--- a/native/pom.xml
++++ b/native/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-native</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Native</name>
+diff --git a/pom.xml b/pom.xml
+index 0a322a27..47bb360c 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -12,7 +12,7 @@
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-parent</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>pom</packaging>
+ 
+     <name>forkmc-parent</name>
+diff --git a/protocol/pom.xml b/protocol/pom.xml
+index 0c51b315..53f48f3f 100644
+--- a/protocol/pom.xml
++++ b/protocol/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-protocol</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Protocol</name>
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/DefinedPacket.java b/protocol/src/main/java/net/md_5/bungee/protocol/DefinedPacket.java
+index 68c716b9..0aba0a24 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/DefinedPacket.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/DefinedPacket.java
+@@ -7,9 +7,77 @@ import java.util.List;
+ import java.util.UUID;
+ import lombok.RequiredArgsConstructor;
+ 
++// ForkMC 20w21a+ imports start - Thanks to Five DE (Xernium) for all this
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++import io.netty.buffer.ByteBufInputStream;
++import io.netty.buffer.ByteBufOutputStream;
++import net.md_5.bungee.protocol.nbt.NBTTag;
++import net.md_5.bungee.protocol.nbt.NBTTagTypes;
++// ForkMC 20w21a+ imports end - Thanks to Five DE (Xernium) for all this
++
+ @RequiredArgsConstructor
+ public abstract class DefinedPacket
+ {
++    // ForkMC 20w21a+ substitute NBT reader/ writer Start - Thanks to Five DE (Xernium) for all this
++    public static void writeNBT(NBTTag toWrite, ByteBuf buf) {
++        if (toWrite == null) {
++            buf.writeByte(0);
++        } else {
++            try {
++                DataOutput to = new ByteBufOutputStream(buf);
++                to.writeByte(toWrite.getTagIndex());
++                if (toWrite.getTagIndex() != 0) {
++                    to.writeUTF("");
++                    toWrite.write(to);
++                }
++            } catch (IOException e) {
++                e.printStackTrace();
++            }
++        }
++
++    }
++
++    public static NBTTag readNBT(ByteBuf buf) {
++        int indexBefore = buf.readerIndex();
++        byte startType = buf.readByte();
++        if (startType == 0) {
++            return null;
++        } else {
++            buf.readerIndex(indexBefore);
++            try {
++                DataInput from = new ByteBufInputStream(buf);
++                byte type = from.readByte();
++                if (type == 0) {
++                    return NBTTagTypes.newInstance(type);
++                } else {
++                    from.readUTF();
++                    NBTTag ret = NBTTagTypes.newInstance(type);
++                    ret.read(from);
++                    return ret;
++                }
++
++            } catch (IOException e) {
++                e.printStackTrace();
++                return null;
++            }
++        }
++    }
++
++    // ForkMC 20w21a+ new UUID reader/writer Start - Thanks to Five DE (Xernium) for all this
++    public static void writeUUIDIntArray(UUID u, ByteBuf buf) {
++        buf.writeInt((int) (u.getMostSignificantBits() >> 32));
++        buf.writeInt((int) u.getMostSignificantBits());
++        buf.writeInt((int) (u.getLeastSignificantBits() >> 32));
++        buf.writeInt((int) u.getLeastSignificantBits());
++    }
++
++    public static UUID readUUIDIntArray(ByteBuf buf) {
++        return new UUID((long) buf.readInt() << 32 | ((long) buf.readInt() & 0xFFFFFFFFL), (long) buf.readInt() << 32 | ((long) buf.readInt() & 0xFFFFFFFFL));
++    }
++    // ForkMC 20w21a+ End
+ 
+     private static final boolean PROCESS_TRACES = Boolean.getBoolean("waterfall.bad-packet-traces");
+     private static final BadPacketException OVERSIZED_VAR_INT_EXCEPTION = new BadPacketException( "VarInt too big" );
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java b/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java
+index aa1515f4..04345a3f 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java
+@@ -49,343 +49,361 @@ public enum Protocol
+ 
+     // Undef
+     HANDSHAKE
+-    {
++            {
+ 
+-        {
+-            TO_SERVER.registerPacket(
+-                    Handshake.class,
+-                    Handshake::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
+-            );
+-        }
+-    },
++                {
++                    TO_SERVER.registerPacket(
++                            Handshake.class,
++                            Handshake::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
++                    );
++                }
++            },
+     // 0
+     GAME
+-    {
++            {
+ 
+-        {
+-            TO_CLIENT.registerPacket(
+-                    KeepAlive.class,
+-                    KeepAlive::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x1F ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x21 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x20 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x21 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Login.class,
+-                    Login::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x01 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x23 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x25 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x26 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Chat.class,
+-                    Chat::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x02 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x0F ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x0E ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x0F )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Respawn.class,
+-                    Respawn::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x07 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x33 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x34 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x35 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x38 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x3A ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x3B )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    BossBar.class,
+-                    BossBar::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x0C ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x0D )
+-            );
+-            // Waterfall start
+-            TO_CLIENT.registerPacket(
+-                    EntityEffect.class,
+-                    EntityEffect::new, // Waterfall - speed up packet construction
+-                    map(ProtocolConstants.MINECRAFT_1_8, 0x1D),
+-                    map(ProtocolConstants.MINECRAFT_1_9, 0x4C),
+-                    map(ProtocolConstants.MINECRAFT_1_9_4, 0x4B),
+-                    map(ProtocolConstants.MINECRAFT_1_12, 0x4E),
+-                    map(ProtocolConstants.MINECRAFT_1_12_1, 0x4F),
+-                    map(ProtocolConstants.MINECRAFT_1_13, 0x53),
+-                    map(ProtocolConstants.MINECRAFT_1_14, 0x59),
+-                    map(ProtocolConstants.MINECRAFT_1_15, 0x5A)
+-            );
+-            TO_CLIENT.registerPacket(
+-                    EntityRemoveEffect.class,
+-                    EntityRemoveEffect::new, // Waterfall - speed up packet construction
+-                    map(ProtocolConstants.MINECRAFT_1_8, 0x1E),
+-                    map(ProtocolConstants.MINECRAFT_1_9, 0x31),
+-                    map(ProtocolConstants.MINECRAFT_1_12, 0x32),
+-                    map(ProtocolConstants.MINECRAFT_1_12_1, 0x33),
+-                    map(ProtocolConstants.MINECRAFT_1_13, 0x36),
+-                    map(ProtocolConstants.MINECRAFT_1_14, 0x38),
+-                    map(ProtocolConstants.MINECRAFT_1_15, 0x39)
+-            );
+-            // Waterfall end
+-            TO_CLIENT.registerPacket(
+-                    PlayerListItem.class, // PlayerInfo
+-                    PlayerListItem::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x38 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x2D ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x2E ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x30 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x33 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x34 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    TabCompleteResponse.class,
+-                    TabCompleteResponse::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x3A ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x0E ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x10 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x11 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    ScoreboardObjective.class,
+-                    ScoreboardObjective::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x3B ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x3F ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x41 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x42 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x45 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x49 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x4A )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    ScoreboardScore.class,
+-                    ScoreboardScore::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x3C ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x42 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x44 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x45 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x48 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x4C ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x4D )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    ScoreboardDisplay.class,
+-                    ScoreboardDisplay::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x3D ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x38 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x3A ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x3B ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x3E ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x42 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x43 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Team.class,
+-                    Team::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x3E ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x41 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x43 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x44 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x47 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x4B ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x4C )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    PluginMessage.class,
+-                    PluginMessage::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x3F ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x18 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x19 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x18 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x19 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Kick.class,
+-                    Kick::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x40 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x1A ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x1B ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x1A ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x1B )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Title.class,
+-                    Title::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x45 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x47 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x48 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x4B ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x4F ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x50 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    PlayerListHeaderFooter.class,
+-                    PlayerListHeaderFooter::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x47 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x48 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9_4, 0x47 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x49 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x4A ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x4E ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x53 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x54 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    EntityStatus.class,
+-                    EntityStatus::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x1A ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x1B ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x1C ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x1B ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x1C )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    Commands.class,
+-                    Commands::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x11 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x12 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    GameState.class,
+-                    GameState::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x1F )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    ViewDistance.class,
+-                    ViewDistance::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x41 ),
+-                    map( ProtocolConstants.MINECRAFT_1_15, 0x42 )
+-            );
+-
+-            TO_SERVER.registerPacket(
+-                    KeepAlive.class,
+-                    KeepAlive::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x0B ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x0C ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x0B ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x0E ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x0F )
+-            );
+-            TO_SERVER.registerPacket(
+-                    Chat.class,
+-                    Chat::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x01 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x02 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x03 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x02 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x03 )
+-            );
+-            TO_SERVER.registerPacket(
+-                    TabCompleteRequest.class,
+-                    TabCompleteRequest::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x14 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x01 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x02 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x01 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x05 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x06 )
+-            );
+-            TO_SERVER.registerPacket(
+-                    ClientSettings.class,
+-                    ClientSettings::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x15 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x04 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x05 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x04 ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x05 )
+-            );
+-            TO_SERVER.registerPacket(
+-                    PluginMessage.class,
+-                    PluginMessage::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x17 ),
+-                    map( ProtocolConstants.MINECRAFT_1_9, 0x09 ),
+-                    map( ProtocolConstants.MINECRAFT_1_12, 0x0A ),
+-                    map( ProtocolConstants.MINECRAFT_1_12_1, 0x09 ),
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x0A ),
+-                    map( ProtocolConstants.MINECRAFT_1_14, 0x0B )
+-            );
+-        }
+-    },
++                {
++                    TO_CLIENT.registerPacket(
++                            KeepAlive.class,
++                            KeepAlive::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x1F ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x21 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x20 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x21 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x20 ) // ForkMC (1.16: 1.16-pre1+ 0x21 -> 0x20)
++                    );
++                    TO_CLIENT.registerPacket(
++                            Login.class,
++                            Login::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x01 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x23 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x25 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x26 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x25 ) // ForkMC (1.16: 1.16-pre1+ 0x26 -> 0x25)
++                    );
++                    TO_CLIENT.registerPacket(
++                            Chat.class,
++                            Chat::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x02 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x0F ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x0E ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x0F ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x0E ) // ForkMC (1.16: 1.16-pre1+ 0x0F -> 0x0E)
++                    );
++                    TO_CLIENT.registerPacket(
++                            Respawn.class,
++                            Respawn::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x07 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x33 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x34 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x35 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x38 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x3A ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x3B ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x3A ) // ForkMC (1.16: 1.16-pre1+ 0x3B -> 0x3A)
++                    );
++                    TO_CLIENT.registerPacket(
++                            BossBar.class,
++                            BossBar::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x0C ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x0D ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x0C ) // ForkMC (1.16: 1.16-pre1+ 0x0D -> 0x0C)
++                    );
++                    // Waterfall start
++                    TO_CLIENT.registerPacket(
++                            EntityEffect.class,
++                            EntityEffect::new, // Waterfall - speed up packet construction
++                            map(ProtocolConstants.MINECRAFT_1_8, 0x1D),
++                            map(ProtocolConstants.MINECRAFT_1_9, 0x4C),
++                            map(ProtocolConstants.MINECRAFT_1_9_4, 0x4B),
++                            map(ProtocolConstants.MINECRAFT_1_12, 0x4E),
++                            map(ProtocolConstants.MINECRAFT_1_12_1, 0x4F),
++                            map(ProtocolConstants.MINECRAFT_1_13, 0x53),
++                            map(ProtocolConstants.MINECRAFT_1_14, 0x59),
++                            map(ProtocolConstants.MINECRAFT_1_15, 0x5A),
++                            map(ProtocolConstants.MINECRAFT_1_16, 0x59) // ForkMC (1.16: 1.16-pre1+ 0x5A -> 0x59)
++                    );
++                    TO_CLIENT.registerPacket(
++                            EntityRemoveEffect.class,
++                            EntityRemoveEffect::new, // Waterfall - speed up packet construction
++                            map(ProtocolConstants.MINECRAFT_1_8, 0x1E),
++                            map(ProtocolConstants.MINECRAFT_1_9, 0x31),
++                            map(ProtocolConstants.MINECRAFT_1_12, 0x32),
++                            map(ProtocolConstants.MINECRAFT_1_12_1, 0x33),
++                            map(ProtocolConstants.MINECRAFT_1_13, 0x36),
++                            map(ProtocolConstants.MINECRAFT_1_14, 0x38),
++                            map(ProtocolConstants.MINECRAFT_1_15, 0x39),
++                            map(ProtocolConstants.MINECRAFT_1_16, 0x38) // ForkMC (1.16: 1.16-pre1+ 0x39 -> 0x38)
++                    );
++                    // Waterfall end
++                    TO_CLIENT.registerPacket(
++                            PlayerListItem.class, // PlayerInfo
++                            PlayerListItem::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x38 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x2D ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x2E ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x30 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x33 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x34 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x33 ) // ForkMC (1.16: 1.16-pre1+ 0x34 -> 0x33)
++                    );
++                    TO_CLIENT.registerPacket(
++                            TabCompleteResponse.class,
++                            TabCompleteResponse::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x3A ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x0E ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x10 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x11 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x10 ) // ForkMC (1.16: 1.16-pre1+ 0x11 -> 0x10)
++                    );
++                    TO_CLIENT.registerPacket(
++                            ScoreboardObjective.class,
++                            ScoreboardObjective::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x3B ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x3F ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x41 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x42 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x45 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x49 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x4A )
++                    );
++                    TO_CLIENT.registerPacket(
++                            ScoreboardScore.class,
++                            ScoreboardScore::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x3C ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x42 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x44 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x45 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x48 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x4C ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x4D )
++                    );
++                    TO_CLIENT.registerPacket(
++                            ScoreboardDisplay.class,
++                            ScoreboardDisplay::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x3D ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x38 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x3A ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x3B ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x3E ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x42 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x43 )
++                    );
++                    TO_CLIENT.registerPacket(
++                            Team.class,
++                            Team::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x3E ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x41 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x43 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x44 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x47 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x4B ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x4C )
++                    );
++                    TO_CLIENT.registerPacket(
++                            PluginMessage.class,
++                            PluginMessage::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x3F ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x18 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x19 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x18 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x19 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x18 ) // ForkMC (1.16: 1.16-pre1+ 0x19 -> 0x18)
++                    );
++                    TO_CLIENT.registerPacket(
++                            Kick.class,
++                            Kick::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x40 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x1A ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x1B ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x1A ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x1B ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x1A )
++                    );
++                    TO_CLIENT.registerPacket(
++                            Title.class,
++                            Title::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x45 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x47 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x48 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x4B ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x4F ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x50 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x4F ) // ForkMC (1.16: 1.16-pre1+ 0x50 -> 0x4F)
++                    );
++                    TO_CLIENT.registerPacket(
++                            PlayerListHeaderFooter.class,
++                            PlayerListHeaderFooter::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x47 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x48 ),
++                            map( ProtocolConstants.MINECRAFT_1_9_4, 0x47 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x49 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x4A ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x4E ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x53 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x54 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x53 ) // ForkMC (1.16: 1.16-pre1+ 0x54 -> 0x53)
++                    );
++                    TO_CLIENT.registerPacket(
++                            EntityStatus.class,
++                            EntityStatus::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x1A ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x1B ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x1C ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x1B ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x1C ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x1B ) // ForkMC (1.16: 1.16-pre1+ 0x1C -> 0x1B)
++                    );
++                    TO_CLIENT.registerPacket(
++                            Commands.class,
++                            Commands::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x11 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x12 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x11 ) // ForkMC (1.16: 1.16-pre1+ 0x12 -> 0x11)
++                    );
++                    TO_CLIENT.registerPacket(
++                            GameState.class,
++                            GameState::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x1F ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x1E ) // ForkMC (1.16: 1.16-pre1+ 0x1F -> 0x1E)
++                    );
++                    TO_CLIENT.registerPacket(
++                            ViewDistance.class,
++                            ViewDistance::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x41 ),
++                            map( ProtocolConstants.MINECRAFT_1_15, 0x42 ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x41 ) // ForkMC (1.16: 1.16-pre1+ 0x42 -> 0x41)
++                    );
++
++                    TO_SERVER.registerPacket(
++                            KeepAlive.class,
++                            KeepAlive::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x0B ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x0C ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x0B ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x0E ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x0F ),
++                            map( ProtocolConstants.MINECRAFT_1_16, 0x10 ) // ForkMC (1.16: 20w16a+ 0x0F -> 0x10)
++                    );
++                    TO_SERVER.registerPacket(
++                            Chat.class,
++                            Chat::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x01 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x02 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x03 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x02 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x03 )
++                    );
++                    TO_SERVER.registerPacket(
++                            TabCompleteRequest.class,
++                            TabCompleteRequest::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x14 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x01 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x02 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x01 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x05 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x06 )
++                    );
++                    TO_SERVER.registerPacket(
++                            ClientSettings.class,
++                            ClientSettings::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x15 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x04 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x05 ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x04 ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x05 )
++                    );
++                    TO_SERVER.registerPacket(
++                            PluginMessage.class,
++                            PluginMessage::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x17 ),
++                            map( ProtocolConstants.MINECRAFT_1_9, 0x09 ),
++                            map( ProtocolConstants.MINECRAFT_1_12, 0x0A ),
++                            map( ProtocolConstants.MINECRAFT_1_12_1, 0x09 ),
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x0A ),
++                            map( ProtocolConstants.MINECRAFT_1_14, 0x0B )
++                    );
++                }
++            },
+     // 1
+     STATUS
+-    {
++            {
+ 
+-        {
+-            TO_CLIENT.registerPacket(
+-                    StatusResponse.class,
+-                    StatusResponse::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    PingPacket.class,
+-                    PingPacket::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
+-            );
+-
+-            TO_SERVER.registerPacket(
+-                    StatusRequest.class,
+-                    StatusRequest::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
+-            );
+-            TO_SERVER.registerPacket(
+-                    PingPacket.class,
+-                    PingPacket::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
+-            );
+-        }
+-    },
++                {
++                    TO_CLIENT.registerPacket(
++                            StatusResponse.class,
++                            StatusResponse::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
++                    );
++                    TO_CLIENT.registerPacket(
++                            PingPacket.class,
++                            PingPacket::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
++                    );
++
++                    TO_SERVER.registerPacket(
++                            StatusRequest.class,
++                            StatusRequest::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
++                    );
++                    TO_SERVER.registerPacket(
++                            PingPacket.class,
++                            PingPacket::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
++                    );
++                }
++            },
+     //2
+     LOGIN
+-    {
++            {
+ 
+-        {
+-            TO_CLIENT.registerPacket(
+-                    Kick.class,
+-                    Kick::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    EncryptionRequest.class,
+-                    EncryptionRequest::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    LoginSuccess.class,
+-                    LoginSuccess::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x02 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    SetCompression.class,
+-                    SetCompression::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x03 )
+-            );
+-            TO_CLIENT.registerPacket(
+-                    LoginPayloadRequest.class,
+-                    LoginPayloadRequest::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x04 )
+-            );
+-
+-            TO_SERVER.registerPacket(
+-                    LoginRequest.class,
+-                    LoginRequest::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
+-            );
+-            TO_SERVER.registerPacket(
+-                    EncryptionResponse.class,
+-                    EncryptionResponse::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
+-            );
+-            TO_SERVER.registerPacket(
+-                    LoginPayloadResponse.class,
+-                    LoginPayloadResponse::new, // Waterfall - speed up packet construction
+-                    map( ProtocolConstants.MINECRAFT_1_13, 0x02 )
+-            );
+-        }
+-    };
++                {
++                    TO_CLIENT.registerPacket(
++                            Kick.class,
++                            Kick::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
++                    );
++                    TO_CLIENT.registerPacket(
++                            EncryptionRequest.class,
++                            EncryptionRequest::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
++                    );
++                    TO_CLIENT.registerPacket(
++                            LoginSuccess.class,
++                            LoginSuccess::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x02 )
++                    );
++                    TO_CLIENT.registerPacket(
++                            SetCompression.class,
++                            SetCompression::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x03 )
++                    );
++                    TO_CLIENT.registerPacket(
++                            LoginPayloadRequest.class,
++                            LoginPayloadRequest::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x04 )
++                    );
++
++                    TO_SERVER.registerPacket(
++                            LoginRequest.class,
++                            LoginRequest::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x00 )
++                    );
++                    TO_SERVER.registerPacket(
++                            EncryptionResponse.class,
++                            EncryptionResponse::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_8, 0x01 )
++                    );
++                    TO_SERVER.registerPacket(
++                            LoginPayloadResponse.class,
++                            LoginPayloadResponse::new, // Waterfall - speed up packet construction
++                            map( ProtocolConstants.MINECRAFT_1_13, 0x02 )
++                    );
++                }
++            };
+     /*========================================================================*/
+     public static final int MAX_PACKET_ID = 0xFF;
+     /*========================================================================*/
+@@ -519,33 +537,33 @@ public enum Protocol
+                 Constructor<? extends DefinedPacket> constructor = packetClass.getDeclaredConstructor();
+                 */ // Waterfall end
+ 
+-                int mappingIndex = 0;
+-                ProtocolMapping mapping = mappings[mappingIndex];
+-                for ( int protocol : ProtocolConstants.SUPPORTED_VERSION_IDS )
++            int mappingIndex = 0;
++            ProtocolMapping mapping = mappings[mappingIndex];
++            for ( int protocol : ProtocolConstants.SUPPORTED_VERSION_IDS )
++            {
++                if ( protocol < mapping.protocolVersion )
+                 {
+-                    if ( protocol < mapping.protocolVersion )
+-                    {
+-                        // This is a new packet, skip it till we reach the next protocol
+-                        continue;
+-                    }
++                    // This is a new packet, skip it till we reach the next protocol
++                    continue;
++                }
+ 
+-                    if ( mapping.protocolVersion < protocol && mappingIndex + 1 < mappings.length )
++                if ( mapping.protocolVersion < protocol && mappingIndex + 1 < mappings.length )
++                {
++                    // Mapping is non current, but the next one may be ok
++                    ProtocolMapping nextMapping = mappings[mappingIndex + 1];
++                    if ( nextMapping.protocolVersion == protocol )
+                     {
+-                        // Mapping is non current, but the next one may be ok
+-                        ProtocolMapping nextMapping = mappings[mappingIndex + 1];
+-                        if ( nextMapping.protocolVersion == protocol )
+-                        {
+-                            Preconditions.checkState( nextMapping.packetID != mapping.packetID, "Duplicate packet mapping (%s, %s)", mapping.protocolVersion, nextMapping.protocolVersion );
+-
+-                            mapping = nextMapping;
+-                            mappingIndex++;
+-                        }
+-                    }
++                        Preconditions.checkState( nextMapping.packetID != mapping.packetID, "Duplicate packet mapping (%s, %s)", mapping.protocolVersion, nextMapping.protocolVersion );
+ 
+-                    ProtocolData data = protocols.get( protocol );
+-                    data.packetMap.put( packetClass, mapping.packetID );
+-                    data.packetConstructors[mapping.packetID] = constructor;
++                        mapping = nextMapping;
++                        mappingIndex++;
++                    }
+                 }
++
++                ProtocolData data = protocols.get( protocol );
++                data.packetMap.put( packetClass, mapping.packetID );
++                data.packetConstructors[mapping.packetID] = constructor;
++            }
+             // Waterfall start - speed up packet construction
+             /*
+             } catch ( NoSuchMethodException ex )
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants$Direction.class b/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants$Direction.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..24aa31981cc94a13713a174c898a69de55976add
+GIT binary patch
+literal 1156
+zcmbVLZEq4m5PtS}IXJH^(n<yUq7@Zr<utJxg)}utQyKz>Lz2c1%|TCc&9P_hj{YvC
+zi8UHcKl`JMvj?#x_`$H7?Ci|WKC|=8?62S7egb%fCviv!$q1{6Aj<HJo4z(UJ=xW|
+zL*6${?W61XPS3Hmx06l9;ht}B-^;$ST(jp}4rh?Fo!9kuRh{9*`}#Z(B?U3WWkgjd
+zxWN$V*$y`uR&x3JnQ?Atw!!;avwKDn$#(&ZGL}>%aFb#2+M&va1A5K5VGqsb2Zr6;
+z)a{CGcwTABp!=@H`=#j!0wBO&R<VLx4AHX1Eq{+8H4QbnS<81~SY?Q}n<tfet=ecS
+zMCY>LG^1h_cNm_}M@J0nV_3b~>Qq|-aZ|;*K#T_2c?>Ue`8mmE2v?j_qIaooakDWT
+zbWOKybZxR6{Ugo%d^u18y4B}~KXeH=l*@M*V&$GaA@p#n5`y;fd{OpF42tdy-JW@1
+zi40ORomvzPLa`gB=N~$rFXJ&o;s4u|L9KCax<Lb(#C-g3>+e6M$}G@V3hk#w!2yy~
+zCLoa!KZ;Jmh~qBqfnkfZEs|m=Bd{-!uMqo08pC~Bqrq8|{1eF1e(Wy=RwXGFzCyi%
+zH0v*kR;70c|4oEw0&-z{?Gnk)GvE)%BH<x@w@0*&gB;N##VCG<bev3uE^+$;=|EWv
+z2g*j|2OWh*NbASp5jOM-uxo75^*{?5Gzn=OA%{HKBowe6$Q=|(Dil$|4z&IBA3lv8
+A1^@s6
+
+literal 0
+HcmV?d00001
+
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants.class b/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..9462476c755d313f7ac2bd5c763dbcece62e752e
+GIT binary patch
+literal 2369
+zcma)-Pf#0G9LIle^JkL~VBfZYfYlbk0=8KKghCU_e`*v6W>Yk+8kexdg=9lFo2o~T
+z9Z#KUuR4wg#~Ck94|bfvt25s0)#*$xTzYY)H!qIAw-4IajXJ{2zVGLk-@oj8zn5SC
+z`srr?xC}RAAVENeU>rgaCZOyYw+yXn*cC0ey=RtP0^y8hTkaJCf#H!Y86qz@>8@kh
+zl?cQLgp!Hr#HSI6dvb=!4vbDFl4DFOTql`UxgKZwG}jYMcXK_-^h;c)nC>GG#5_|m
+zcp1*f@JbwBg|jDpG+nEzEjW(xSp!3i#+uc@u7`$itogr7dW4(22<DcK!T`J`!(beS
+z;B^9{w&`lMol;8MZrT;o)DE1wTQAqE+UBuXs@o0Muw5*r>en_mbNRx`a%pQNuV-@`
+zI=1AmAj2>L`n;2@?V1(SiNSdojl&yofq;C=s5Z^qE`jdh>~V|U4jlV>T_)n7u@<{p
+zs+O|LSh#&XyRovAUsx@alBH<^B#X9_Zns#00B*SEbDUwueFB|g^h_zq%+(h2I5XE;
+z%#+M)6X+0=B*&Qbq2J0flQh1k7kramMUwG*vw|e&_a5io`BuB<U+`y{U|DYay(f5<
+zJFRvv%UypK_ASXHzxO21^0?LRWjSiKd)+)~wR`!W`m3g}sx<5OPI*<OxmG)?DlPi6
+zOff6=7}c$cZMaRxBrxbZsTpBh_*AE_;6@Gohug{dWPZV=`VMC8T(fL*qgmTFor1Al
+zMN8ajESkG@$ILk^H}Ps1&Spoh<1y4-qrAUv92~o~S&fBV*L1j7BvY;)-#Rh9-gL_5
+zs>PCZx6EOJjTV8n4YT2{o2+g_W`}X||Bv$EvgP1SXVoz*p0#b$S*jY1hKVyCefANY
+z!>dBVBi)PtV~_*_<46)rAWsUMLY@-%67sabGsu?(P9tXoo<+VQ@Er2IzzfKW0xuyi
+z3%r87D)3e0HwDfjza{Y7$ZG<xBX0<tL*5kl9pt>gI&wkaYsgyyzl;2yz(wTi0^dM>
+zU*HdrKNPrxjF&UM?~lCqZ6M=K_>8w9h#G&q@L5KWGq@65L!&<e`2hui9elEn*|Qf+
+z*hS4;6S#eBOWXSTzX3V;Ed&GKBT7QRRj8mP1X6UKVC={L6#MnR#IA|45wK2LBwu37
+z_(ukm=po3(fEv|{LA6aUhSYYw7*;#=qO4NA7*S8@MJ23u;Zs(7@EK8i^#{;@AI>Q~
+zhj6|aP_zdyg3-#pw}zCew}zFPx5|p`tq}?jJ)wjtNpmGrlHn>sNsg;1C3&u5loYsX
+zqvSSMaZ2uR)lSJ>t~w}r#8oFHkGWDPIpT^^@`NjulBZmqqS7o^r>Qi@RTq^Ox$35p
+zm&N;*7oYFn9`xZWI}2(2&0K~Hcw{f)u}k35(Qv!QpoT~06CBCUaUj3IfxHJP_zDN{
+zJGcb*aR3it27bZ8`wcVvjstfDv+xHF+Mh5-0x(b7VS)6(BI(Ec0ocP@66`}2S9ZK=
+OP)8N>)BqgJ_x=qPRLP<M
+
+literal 0
+HcmV?d00001
+
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants.java b/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants.java
+index cd987c8a..12ecaa3f 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/ProtocolConstants.java
+@@ -28,6 +28,7 @@ public class ProtocolConstants
+     public static final int MINECRAFT_1_15 = 573;
+     public static final int MINECRAFT_1_15_1 = 575;
+     public static final int MINECRAFT_1_15_2 = 578;
++    public static final int MINECRAFT_1_16 = 736; // ForkMC 1.16.1
+     public static final List<String> SUPPORTED_VERSIONS = Arrays.asList(
+             "1.8.x",
+             "1.9.x",
+@@ -36,7 +37,8 @@ public class ProtocolConstants
+             "1.12.x",
+             "1.13.x",
+             "1.14.x",
+-            "1.15.x"
++            "1.15.x",
++            "1.16"
+     );
+     public static final List<Integer> SUPPORTED_VERSION_IDS = Arrays.asList(
+             ProtocolConstants.MINECRAFT_1_8,
+@@ -60,7 +62,8 @@ public class ProtocolConstants
+             ProtocolConstants.MINECRAFT_1_14_4,
+             ProtocolConstants.MINECRAFT_1_15,
+             ProtocolConstants.MINECRAFT_1_15_1,
+-            ProtocolConstants.MINECRAFT_1_15_2
++            ProtocolConstants.MINECRAFT_1_15_2,
++            ProtocolConstants.MINECRAFT_1_16
+     );
+ 
+     public static final boolean isBeforeOrEq(int before, int other)
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/ByteTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/ByteTag.java
+new file mode 100644
+index 00000000..680e375f
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/ByteTag.java
+@@ -0,0 +1,38 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a
++ * by Xernium (Five)
++ * */
++
++public class ByteTag extends NBTTag {
++
++    private byte value;
++
++    @Override
++    public int getTagIndex() {
++        return 1;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        to.writeByte(value);
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        value = from.readByte();
++    }
++
++    @Override
++    public String toString() {
++        return "value: '" + value + "'\n";
++    }
++
++
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/CompoundTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/CompoundTag.java
+new file mode 100644
+index 00000000..dda7275e
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/CompoundTag.java
+@@ -0,0 +1,57 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++import java.util.HashMap;
++import java.util.Map;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a+
++ * by Xernium (Five)
++ * */
++
++public class CompoundTag extends NBTTag {
++
++    private Map<String, NBTTag> tagMap = new HashMap<String, NBTTag>();
++
++    @Override
++    public int getTagIndex() {
++        return 10;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        for (Map.Entry<String, NBTTag> entry : tagMap.entrySet()) {
++            to.writeByte(entry.getValue().getTagIndex());
++            if (entry.getValue().getTagIndex() != 0) {
++                to.writeUTF(entry.getKey());
++                entry.getValue().write(to);
++            }
++        }
++
++        to.writeByte(0);
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        tagMap = new HashMap<String, NBTTag>();
++        for (byte type = from.readByte(); type != 0; type = from.readByte()) {
++            String key = from.readUTF();
++            NBTTag value = NBTTagTypes.newInstance(type);
++            value.read(from);
++            tagMap.put(key, value);
++        }
++    }
++
++    @Override
++    public String toString() {
++        String ret = "CompoundTag: \n";
++        for (Map.Entry<String, NBTTag> entry : tagMap.entrySet()) {
++            ret += "\t" + entry.getKey() + "\n";
++            ret += "\t\t" + entry.getValue().toString() + "\n";
++        }
++        return ret;
++    }
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/EndTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/EndTag.java
+new file mode 100644
+index 00000000..84bdaf40
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/EndTag.java
+@@ -0,0 +1,32 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a+
++ * by Xernium (Five)
++ * */
++
++public class EndTag extends NBTTag {
++
++    @Override
++    public int getTagIndex() {
++        return 0;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++    }
++
++    @Override
++    public String toString() {
++        return "EndTag\n";
++    }
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/FloatTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/FloatTag.java
+new file mode 100644
+index 00000000..67bb1a58
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/FloatTag.java
+@@ -0,0 +1,38 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a
++ * by Xernium (Five)
++ * */
++
++public class FloatTag extends NBTTag {
++
++    private float value;
++
++    @Override
++    public int getTagIndex() {
++        return 5;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        to.writeFloat(value);
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        value = from.readFloat();
++    }
++
++    @Override
++    public String toString() {
++        return "value: '" + value + "'\n";
++    }
++
++
++}
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/IntTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/IntTag.java
+new file mode 100644
+index 00000000..b903262f
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/IntTag.java
+@@ -0,0 +1,38 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a
++ * by Xernium (Five)
++ * */
++
++public class IntTag extends NBTTag {
++
++    private int value;
++
++    @Override
++    public int getTagIndex() {
++        return 3;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        to.writeInt(value);
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        value = from.readInt();
++    }
++
++    @Override
++    public String toString() {
++        return "value: '" + value + "'\n";
++    }
++
++
++}
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/ListTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/ListTag.java
+new file mode 100644
+index 00000000..1391631f
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/ListTag.java
+@@ -0,0 +1,68 @@
++package net.md_5.bungee.protocol.nbt;
++
++import com.google.common.collect.Lists;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++import java.util.ArrayList;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a+
++ * by Xernium (Five)
++ * */
++
++
++public class ListTag extends NBTTag {
++
++    private ArrayList<NBTTag> values = new ArrayList<NBTTag>();
++    private byte tagType;
++
++    @Override
++    public int getTagIndex() {
++        return 9;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        if (values.isEmpty()) {
++            to.writeByte(0);
++            to.writeInt(0);
++        } else {
++            to.writeByte(tagType);
++            to.writeInt(values.size());
++
++            for (NBTTag iter : values) {
++                iter.write(to);
++            }
++
++        }
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        tagType = from.readByte();
++        int len = from.readInt();
++        if (tagType == 0 && len > 0) {
++            throw new IOException("ListTag contained filled EndTag or type for Tag was invalid");
++        } else {
++            ArrayList<NBTTag> read = Lists.newArrayListWithCapacity(len);
++            for (int i = 0; i < len; i++) {
++                NBTTag inst = NBTTagTypes.newInstance(tagType);
++                inst.read(from);
++                read.add(inst);
++            }
++            values = read;
++        }
++    }
++
++    @Override
++    public String toString() {
++        String ret = "ListTag (Type: " + tagType + " : \n";
++        for (NBTTag d : values) {
++            ret += "\t" + d.toString() + "\n";
++        }
++        return ret;
++    }
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/LongTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/LongTag.java
+new file mode 100644
+index 00000000..44769668
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/LongTag.java
+@@ -0,0 +1,38 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a
++ * by Xernium (Five)
++ * */
++
++public class LongTag extends NBTTag {
++
++    private long value;
++
++    @Override
++    public int getTagIndex() {
++        return 4;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        to.writeLong(value);
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        value = from.readLong();
++    }
++
++    @Override
++    public String toString() {
++        return "value: '" + value + "'\n";
++    }
++
++
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/NBTTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/NBTTag.java
+new file mode 100644
+index 00000000..a238d9e3
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/NBTTag.java
+@@ -0,0 +1,23 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a+
++ * by Xernium (Five)
++ * */
++
++
++public abstract class NBTTag {
++
++    public abstract int getTagIndex();
++
++    public abstract void write(DataOutput to) throws IOException;
++
++    public abstract void read(DataInput from) throws IOException;
++
++    public abstract String toString();
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/NBTTagTypes.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/NBTTagTypes.java
+new file mode 100644
+index 00000000..aad7cc21
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/NBTTagTypes.java
+@@ -0,0 +1,37 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a+
++ * by Xernium (Five)
++ * */
++
++
++public class NBTTagTypes {
++
++    public static NBTTag newInstance(byte id) throws IOException {
++        switch (id) {
++            case 0:
++                return new EndTag();
++            case 1:
++                return new ByteTag();
++            case 3:
++                return new IntTag();
++            case 4:
++                return new LongTag();
++            case 5:
++                return new FloatTag();
++            case 8:
++                return new StringTag();
++            case 9:
++                return new ListTag();
++            case 10:
++                return new CompoundTag();
++            default:
++                throw new IOException("Unsupported NBT ID: " + id);
++        }
++    }
++
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/nbt/StringTag.java b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/StringTag.java
+new file mode 100644
+index 00000000..7fa0a7de
+--- /dev/null
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/nbt/StringTag.java
+@@ -0,0 +1,38 @@
++package net.md_5.bungee.protocol.nbt;
++
++import java.io.DataInput;
++import java.io.DataOutput;
++import java.io.IOException;
++
++/*
++ * Waterfall NBT-Library substitute module
++ * Minecraft 1.16 - 20w21a+
++ * by Xernium (Five)
++ * */
++
++public class StringTag extends NBTTag {
++
++    private String value;
++
++    @Override
++    public int getTagIndex() {
++        return 8;
++    }
++
++    @Override
++    public void write(DataOutput to) throws IOException {
++        to.writeUTF(value);
++    }
++
++    @Override
++    public void read(DataInput from) throws IOException {
++        value = from.readUTF();
++    }
++
++    @Override
++    public String toString() {
++        return "value: '" + value + "'\n";
++    }
++
++
++}
+\ No newline at end of file
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Chat.java b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Chat.java
+index 0ded6739..b425dcab 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Chat.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Chat.java
+@@ -9,6 +9,8 @@ import net.md_5.bungee.protocol.AbstractPacketHandler;
+ import net.md_5.bungee.protocol.DefinedPacket;
+ import net.md_5.bungee.protocol.ProtocolConstants;
+ 
++import java.util.UUID; // ForkMC 20w21a+
++
+ @Data
+ @NoArgsConstructor
+ @AllArgsConstructor
+@@ -18,10 +20,17 @@ public class Chat extends DefinedPacket
+ 
+     private String message;
+     private byte position;
++    private UUID sender; // ForkMC 20w21a+
++
++    // ForkMC (1.16+ retain API)
++    public Chat(String message, byte position)
++    {
++        this( message, position, /* ForkMC 20w21a+ */ new UUID( 0, 0 ) );
++    }
+ 
+     public Chat(String message)
+     {
+-        this( message, (byte) 0 );
++        this( message, (byte) 0, /* ForkMC 20w21a+ */ new UUID( 0, 0 ) );
+     }
+ 
+     @Override
+@@ -36,6 +45,12 @@ public class Chat extends DefinedPacket
+         if ( direction == ProtocolConstants.Direction.TO_CLIENT )
+         {
+             position = buf.readByte();
++            // ForkMC 20w21a+ Start
++            if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
++            {
++                sender = new UUID( buf.readLong(), buf.readLong() );
++            }
++            // ForkMC 20w21a+ End
+         }
+     }
+ 
+@@ -51,6 +66,13 @@ public class Chat extends DefinedPacket
+         if ( direction == ProtocolConstants.Direction.TO_CLIENT )
+         {
+             buf.writeByte( position );
++            // ForkMC 20w21a+ Start
++            if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
++            {
++                buf.writeLong( sender.getMostSignificantBits() );
++                buf.writeLong( sender.getLeastSignificantBits() );
++            }
++            // ForkMC 20w21a+ End
+         }
+     }
+ 
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Commands.java b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Commands.java
+index 2f14d074..8cede6a9 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Commands.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Commands.java
+@@ -547,6 +547,7 @@ public class Commands extends DefinedPacket
+             PROVIDERS.put( "minecraft:entity_summon", VOID );
+             PROVIDERS.put( "minecraft:dimension", VOID );
+             PROVIDERS.put( "minecraft:time", VOID ); // 1.14
++            PROVIDERS.put( "minecraft:uuid", VOID ); // Minecraft 1.16 20w17a snapshot and up - ForkMC
+         }
+ 
+         private static ArgumentType<?> read(String key, ByteBuf buf)
+@@ -618,6 +619,7 @@ public class Commands extends DefinedPacket
+             registerDummy( "minecraft:all_recipes" );
+             registerDummy( "minecraft:available_sounds" );
+             registerDummy( "minecraft:summonable_entities" );
++            registerDummy( "minecraft:available_biomes" );
+         }
+ 
+         private static void registerDummy(String name)
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Login.java b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Login.java
+index e0cdf82e..db9bc967 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Login.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Login.java
+@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
+ import net.md_5.bungee.protocol.AbstractPacketHandler;
+ import net.md_5.bungee.protocol.DefinedPacket;
+ import net.md_5.bungee.protocol.ProtocolConstants;
++import net.md_5.bungee.protocol.nbt.NBTTag; // ForkMC 20w21a+ - Thanks to Five DE (Xernium) for the NBT work
+ 
+ @Data
+ @NoArgsConstructor
+@@ -15,7 +16,6 @@ import net.md_5.bungee.protocol.ProtocolConstants;
+ @EqualsAndHashCode(callSuper = false)
+ public class Login extends DefinedPacket
+ {
+-
+     private int entityId;
+     private short gameMode;
+     private int dimension;
+@@ -26,19 +26,45 @@ public class Login extends DefinedPacket
+     private int viewDistance;
+     private boolean reducedDebugInfo;
+     private boolean normalRespawn;
++    private boolean isDebug; // ForkMC 20w20a+
++    private boolean isFlat; // ForkMC 20w20a+
++    private String dimensionCodecName; // ForkMC 20w21a+
++    private NBTTag codecTag; // ForkMC 20w21a+
++    private String[] worldNamesList; // ForkMC 20w22a+
++    private String worldName; // ForkMC 20w22a+
++    private short oldGameMode; //ForkMC 1.16 Pre6+
+ 
+     @Override
+     public void read(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion)
+     {
+         entityId = buf.readInt();
+         gameMode = buf.readUnsignedByte();
+-        if ( protocolVersion > ProtocolConstants.MINECRAFT_1_9 )
++        // ForkMC 20w21a+ Start - Thanks to Five DE (Xernium) for the NBT work
++        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
+         {
+-            dimension = buf.readInt();
++            // ForkMC 20w22a+ Start
++            oldGameMode = buf.readByte(); // ForkMC 1.16 Pre6+
++            int worldNamesListLength = readVarInt( buf );
++            worldNamesList = new String[worldNamesListLength];
++            for ( int iter = 0; iter < worldNamesListLength; iter++ )
++            {
++                worldNamesList[iter] = readString( buf );
++            }
++            // ForkMC 20w22a+ End
++            codecTag = readNBT( buf );
++            dimensionCodecName = readString( buf );
++            worldName = readString( buf ); // ForkMC 20w22a+
+         } else
+         {
+-            dimension = buf.readByte();
++            if ( protocolVersion > ProtocolConstants.MINECRAFT_1_9 )
++            {
++                dimension = buf.readInt();
++            } else
++            {
++                dimension = buf.readByte();
++            }
+         }
++        // ForkMC 20w21a+ End - Thanks to Five DE (Xernium) for the NBT work
+         if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_15 )
+         {
+             seed = buf.readLong();
+@@ -48,7 +74,10 @@ public class Login extends DefinedPacket
+             difficulty = buf.readUnsignedByte();
+         }
+         maxPlayers = buf.readUnsignedByte();
+-        levelType = readString( buf );
++        if ( protocolVersion < ProtocolConstants.MINECRAFT_1_16 ) // ForkMC 20w20a+
++        {
++            levelType = readString( buf );
++        }
+         if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_14 )
+         {
+             viewDistance = readVarInt( buf );
+@@ -61,6 +90,11 @@ public class Login extends DefinedPacket
+         {
+             normalRespawn = buf.readBoolean();
+         }
++        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
++        {
++            isDebug = buf.readBoolean(); // ForkMC 20w20a+
++            isFlat = buf.readBoolean(); // ForkMC 20w20a+
++        }
+     }
+ 
+     @Override
+@@ -68,13 +102,31 @@ public class Login extends DefinedPacket
+     {
+         buf.writeInt( entityId );
+         buf.writeByte( gameMode );
+-        if ( protocolVersion > ProtocolConstants.MINECRAFT_1_9 )
++        // ForkMC 20w21a+ Start - Thanks to Five DE (Xernium) for the NBT work
++        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
+         {
+-            buf.writeInt( dimension );
++            // ForkMC 20w22a+ Start
++            buf.writeByte( oldGameMode ); // ForkMC 1.16 Pre6+
++            writeVarInt( worldNamesList.length, buf );
++            for ( int iter = 0; iter < worldNamesList.length; iter++ )
++            {
++                writeString( worldNamesList[iter], buf );
++            }
++            // ForkMC 20w22a+ End
++            writeNBT( codecTag, buf );
++            writeString( dimensionCodecName, buf );
++            writeString( worldName, buf ); // ForkMC 20w22a+
+         } else
+         {
+-            buf.writeByte( dimension );
++            if ( protocolVersion > ProtocolConstants.MINECRAFT_1_9 )
++            {
++                buf.writeInt( dimension );
++            } else
++            {
++                buf.writeByte( dimension );
++            }
+         }
++        // ForkMC 20w21a+ End - Thanks to Five DE (Xernium) for the NBT work
+         if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_15 )
+         {
+             buf.writeLong( seed );
+@@ -84,7 +136,10 @@ public class Login extends DefinedPacket
+             buf.writeByte( difficulty );
+         }
+         buf.writeByte( maxPlayers );
+-        writeString( levelType, buf );
++        if ( protocolVersion < ProtocolConstants.MINECRAFT_1_16 ) // ForkMC 20w20a+
++        {
++            writeString( levelType, buf );
++        }
+         if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_14 )
+         {
+             writeVarInt( viewDistance, buf );
+@@ -97,6 +152,11 @@ public class Login extends DefinedPacket
+         {
+             buf.writeBoolean( normalRespawn );
+         }
++        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
++        {
++            buf.writeBoolean( isDebug ); // ForkMC 20w20a+
++            buf.writeBoolean( isFlat ); // ForkMC 20w20a+
++        }
+     }
+ 
+     @Override
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/packet/LoginSuccess.java b/protocol/src/main/java/net/md_5/bungee/protocol/packet/LoginSuccess.java
+index 2aa5ad58..ff986fe0 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/packet/LoginSuccess.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/packet/LoginSuccess.java
+@@ -7,6 +7,9 @@ import lombok.EqualsAndHashCode;
+ import lombok.NoArgsConstructor;
+ import net.md_5.bungee.protocol.AbstractPacketHandler;
+ import net.md_5.bungee.protocol.DefinedPacket;
++import net.md_5.bungee.protocol.ProtocolConstants;
++
++import java.util.UUID;
+ 
+ @Data
+ @NoArgsConstructor
+@@ -17,18 +20,60 @@ public class LoginSuccess extends DefinedPacket
+ 
+     private String uuid;
+     private String username;
++    private int protocolVersion;
++
++    public void read0(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion){
++        this.protocolVersion = protocolVersion;
++        read(buf);
++    }
++
++    @Override
++    public void read(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion){
++        this.protocolVersion = protocolVersion;
++        read(buf);
++    }
++
++    @Override
++    public void write(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion){
++        this.protocolVersion = protocolVersion;
++        write(buf);
++    }
++
++    public void write0(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion){
++        this.protocolVersion = protocolVersion;
++        write(buf);
++    }
+ 
+     @Override
+     public void read(ByteBuf buf)
+     {
+-        uuid = readString( buf );
++        if(ProtocolConstants.isAfterOrEq( this.protocolVersion, ProtocolConstants.MINECRAFT_1_16 )){
++            int[] ints = {
++                    buf.readInt(),
++                    buf.readInt(),
++                    buf.readInt(),
++                    buf.readInt()
++            };
++            this.uuid = uuidFromIntArray(ints).toString();
++        } else{
++            uuid = readString( buf );
++
++        }
+         username = readString( buf );
+     }
+ 
+     @Override
+     public void write(ByteBuf buf)
+     {
+-        writeString( uuid, buf );
++        if(ProtocolConstants.isAfterOrEq( this.protocolVersion, ProtocolConstants.MINECRAFT_1_16 )){
++            int[] ints = uuidToIntArray(UUID.fromString(this.uuid));
++            buf.writeInt(ints[0]);
++            buf.writeInt(ints[1]);
++            buf.writeInt(ints[2]);
++            buf.writeInt(ints[3]);
++        } else {
++            writeString(uuid, buf);
++        }
+         writeString( username, buf );
+     }
+ 
+@@ -37,4 +82,17 @@ public class LoginSuccess extends DefinedPacket
+     {
+         handler.handle( this );
+     }
++
++    // Probably bad to put these here but it doesn't matter for now
++    public static UUID uuidFromIntArray(int[] ints) {
++        return new UUID((long) ints[0] << 32 | ((long) ints[1] & 0xFFFFFFFFL), (long) ints[2] << 32 | ((long) ints[3] & 0xFFFFFFFFL));
++    }
++
++    public static int[] uuidToIntArray(UUID uuid) {
++        return bitsToIntArray(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits());
++    }
++
++    public static int[] bitsToIntArray(long long1, long long2) {
++        return new int[]{(int) (long1 >> 32), (int) long1, (int) (long2 >> 32), (int) long2};
++    }
+ }
+diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Respawn.java b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Respawn.java
+index 1f544f26..031550d7 100644
+--- a/protocol/src/main/java/net/md_5/bungee/protocol/packet/Respawn.java
++++ b/protocol/src/main/java/net/md_5/bungee/protocol/packet/Respawn.java
+@@ -21,11 +21,26 @@ public class Respawn extends DefinedPacket
+     private short difficulty;
+     private short gameMode;
+     private String levelType;
++    private boolean keepAllPlayerData; // ForkMC 20w18a+
++    private Boolean isDebug; // ForkMC 20w20a+
++    private Boolean isFlat; // ForkMC 20w20a+
++    private String dimensionCodecName; // ForkMC 20w21a+
++    private String worldType; // ForkMC 20w22a+
++    private short oldGameMode; // ForkMC 1.16 Pre6+
+ 
+     @Override
+-    public void read(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion)
+-    {
+-        dimension = buf.readInt();
++    public void read(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion) {
++        // ForkMC 20w21a+ Start - Thanks to Five DE (Xernium) for the NBT work
++        if (protocolVersion >= ProtocolConstants.MINECRAFT_1_16)
++        {
++            dimensionCodecName = readString( buf );
++            worldType = readString( buf ); // ForkMC 20w22a+
++        } else
++        {
++            dimension = buf.readInt();
++        }
++
++        // ForkMC 20w21a+ End - Thanks to Five DE (Xernium) for the NBT work
+         if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_15 )
+         {
+             seed = buf.readLong();
+@@ -35,13 +50,32 @@ public class Respawn extends DefinedPacket
+             difficulty = buf.readUnsignedByte();
+         }
+         gameMode = buf.readUnsignedByte();
+-        levelType = readString( buf );
++        if ( protocolVersion < ProtocolConstants.MINECRAFT_1_16) // ForkMC 20w20a+
++        {
++            levelType = readString( buf );
++        }
++        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
++        {
++            oldGameMode = buf.readByte(); // ForkMC 1.16 Pre6+
++            isDebug = buf.readBoolean(); // ForkMC 20w20a+
++            isFlat = buf.readBoolean(); // ForkMC 20w20a+
++            keepAllPlayerData = buf.readBoolean(); // ForkMC 20w20a+
++        }
+     }
+ 
+     @Override
+     public void write(ByteBuf buf, ProtocolConstants.Direction direction, int protocolVersion)
+     {
+-        buf.writeInt( dimension );
++        // ForkMC 20w21a+ Start - Thanks to Five DE (Xernium) for the NBT work
++        if (protocolVersion >= ProtocolConstants.MINECRAFT_1_16)
++        {
++            writeString( dimensionCodecName, buf );
++            writeString( worldType, buf ); // ForkMC 20w22a+
++        } else
++        {
++            buf.writeInt( dimension );
++        }
++        // ForkMC 20w21a+ End - Thanks to Five DE (Xernium) for the NBT work
+         if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_15 )
+         {
+             buf.writeLong( seed );
+@@ -51,7 +85,17 @@ public class Respawn extends DefinedPacket
+             buf.writeByte( difficulty );
+         }
+         buf.writeByte( gameMode );
+-        writeString( levelType, buf );
++        if ( protocolVersion < ProtocolConstants.MINECRAFT_1_16) // ForkMC 20w20a+
++        {
++            writeString( levelType, buf );
++        }
++        if( protocolVersion >= ProtocolConstants.MINECRAFT_1_16 )
++        {
++            buf.writeByte( oldGameMode ); // ForkMC 1.16 Pre6+
++            buf.writeBoolean( isDebug ); // ForkMC 20w20a+
++            buf.writeBoolean( isFlat ); // ForkMC 20w20a+
++            buf.writeBoolean( keepAllPlayerData ); // ForkMC 20w20a+
++        }
+     }
+ 
+     @Override
+diff --git a/proxy/.factorypath b/proxy/.factorypath
+new file mode 100644
+index 00000000..1c9c7e17
+--- /dev/null
++++ b/proxy/.factorypath
+@@ -0,0 +1,36 @@
++<factorypath>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec-haproxy/4.1.49.Final/netty-codec-haproxy-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-buffer/4.1.49.Final/netty-buffer-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport/4.1.49.Final/netty-transport-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec/4.1.49.Final/netty-codec-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec-http/4.1.49.Final/netty-codec-http-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-common/4.1.49.Final/netty-common-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-resolver-dns/4.1.49.Final/netty-resolver-dns-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-resolver/4.1.49.Final/netty-resolver-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec-dns/4.1.49.Final/netty-codec-dns-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-handler/4.1.49.Final/netty-handler-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport-native-epoll/4.1.49.Final/netty-transport-native-epoll-4.1.49.Final-linux-x86_64.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport-native-unix-common/4.1.49.Final/netty-transport-native-unix-common-4.1.49.Final.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/yaml/snakeyaml/1.25/snakeyaml-1.25.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/logging/log4j/log4j-core/2.12.0/log4j-core-2.12.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/logging/log4j/log4j-api/2.12.0/log4j-api-2.12.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/logging/log4j/log4j-iostreams/2.12.0/log4j-iostreams-2.12.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/logging/log4j/log4j-jul/2.12.0/log4j-jul-2.12.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/logging/log4j/log4j-slf4j-impl/2.12.0/log4j-slf4j-impl-2.12.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/com/lmax/disruptor/3.4.2/disruptor-3.4.2.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/net/md-5/brigadier/1.0.16-SNAPSHOT/brigadier-1.0.16-SNAPSHOT.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/net/sf/trove4j/core/3.1.0/core-3.1.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/se/llbit/jo-nbt/1.3.0/jo-nbt-1.3.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/net/minecrell/terminalconsoleappender/1.2.0/terminalconsoleappender-1.2.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/jline/jline-reader/3.12.1/jline-reader-3.12.1.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/jline/jline-terminal-jansi/3.12.1/jline-terminal-jansi-3.12.1.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/fusesource/jansi/jansi/1.18/jansi-1.18.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/jline/jline-terminal/3.12.1/jline-terminal-3.12.1.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/com/google/guava/guava/21.0/guava-21.0.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/com/google/code/findbugs/findbugs-annotations/3.0.1/findbugs-annotations-3.0.1.jar" enabled="true" runInBatchMode="false"/>
++    <factorypathentry kind="VARJAR" id="M2_REPO/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar" enabled="true" runInBatchMode="false"/>
++</factorypath>
+diff --git a/proxy/pom.xml b/proxy/pom.xml
+index 519f1a76..2ab5a17b 100644
+--- a/proxy/pom.xml
++++ b/proxy/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-proxy</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Proxy</name>
+diff --git a/proxy/src/main/java/net/md_5/bungee/PacketConstants.java b/proxy/src/main/java/net/md_5/bungee/PacketConstants.java
+index 000c450e..254e9878 100644
+--- a/proxy/src/main/java/net/md_5/bungee/PacketConstants.java
++++ b/proxy/src/main/java/net/md_5/bungee/PacketConstants.java
+@@ -7,8 +7,8 @@ import net.md_5.bungee.protocol.packet.Respawn;
+ public class PacketConstants
+ {
+ 
+-    public static final Respawn DIM1_SWITCH = new Respawn( (byte) 1, 0, (byte) 0, (byte) 0, "default" );
+-    public static final Respawn DIM2_SWITCH = new Respawn( (byte) -1, 0, (byte) 0, (byte) 0, "default" );
++    public static final Respawn DIM1_SWITCH = new Respawn( (byte) 1, 0, (byte) 0, (byte) 0, "default", false, /* ForkMC 20w18a+ */ false, false, /* ForkMC 20w20a+ */ "minecraft:overworld", /* ForkMC 20w21a+ */ "bungeecord:dimension_switch1" /* ForkMC 20w22a+ */, (short) -1 /* ForkMC 1.16 Pre6+ */);
++    public static final Respawn DIM2_SWITCH = new Respawn( (byte) -1, 0, (byte) 0, (byte) 0, "default", false, /* ForkMC 20w18a+ */ false, false, /* ForkMC 20w20a+ */ "minecraft:overworld", /* ForkMC 20w21a+ */ "bungeecord:dimension_switch1" /* ForkMC 20w22a+ */, (short) -1 /* ForkMC 1.16 Pre6+ */);
+     public static final ClientStatus CLIENT_LOGIN = new ClientStatus( (byte) 0 );
+     public static final PluginMessage FORGE_MOD_REQUEST = new PluginMessage( "FML", new byte[]
+     {
+diff --git a/proxy/src/main/java/net/md_5/bungee/ServerConnector.java b/proxy/src/main/java/net/md_5/bungee/ServerConnector.java
+index 35a19224..09dd7662 100644
+--- a/proxy/src/main/java/net/md_5/bungee/ServerConnector.java
++++ b/proxy/src/main/java/net/md_5/bungee/ServerConnector.java
+@@ -246,7 +246,7 @@ public class ServerConnector extends PacketHandler
+ 
+             // Set tab list size, TODO: what shall we do about packet mutability
+             Login modLogin = new Login( login.getEntityId(), login.getGameMode(), (byte) login.getDimension(), login.getSeed(), login.getDifficulty(),
+-                    (byte) user.getPendingConnection().getListener().getTabListSize(), login.getLevelType(), login.getViewDistance(), login.isReducedDebugInfo(), login.isNormalRespawn() );
++                    (byte) user.getPendingConnection().getListener().getTabListSize(), login.getLevelType(), login.getViewDistance(), login.isReducedDebugInfo(), login.isNormalRespawn(), login.isDebug(), login.isFlat(), /* ForkMC 20w20a+ */ login.getDimensionCodecName(), login.getCodecTag(), /* ForkMC 20w21a+ */ login.getWorldNamesList(), login.getWorldName(), /* ForkMC 20w22a+ */ login.getOldGameMode() /* ForkMC 1.16 Pre6+ */);
+ 
+             user.unsafe().sendPacket( modLogin );
+ 
+@@ -296,7 +296,7 @@ public class ServerConnector extends PacketHandler
+             user.setDimensionChange( true );
+             if ( !user.isDisableEntityMetadataRewrite() && login.getDimension() == user.getDimension() ) // Waterfall - defer
+             {
+-                user.unsafe().sendPacket( new Respawn( ( login.getDimension() >= 0 ? -1 : 0 ), login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType() ) );
++                user.unsafe().sendPacket( new Respawn( ( login.getDimension() >= 0 ? -1 : 0 ), login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType(), false,  /* ForkMC 20w18a+ */ login.isDebug(), login.isFlat(), /* ForkMC 20w20a+ */ login.getDimensionCodecName(), /* ForkMC 20w21a+ */ login.getWorldName(), /* ForkMC 20w22a+ */ login.getOldGameMode() /* ForkMC 1.16 Pre6+ */ ));
+             }
+ 
+             user.setServerEntityId( login.getEntityId() );
+@@ -308,20 +308,22 @@ public class ServerConnector extends PacketHandler
+ 
+                 // Only send if we are not in the same dimension
+                 if (user.getDimension() != login.getDimension()) {
+-                    user.unsafe().sendPacket( new Respawn(user.getDimension() == 0 ? -1 : 0, login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType()));
++                    user.unsafe().sendPacket( new Respawn(user.getDimension() == 0 ? -1 : 0, login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType(), false, /* ForkMC 20w18a+ */ login.isDebug(), login.isFlat(), /* ForkMC 20w20a+ */ login.getDimensionCodecName(), /* ForkMC 20w21a+ */ login.getWorldName(), /* ForkMC 20w22a+ */ login.getOldGameMode() /* ForkMC 1.16 Pre6+ */ ));
+                 }
+ 
++                // Set tab list size, TODO: what shall we do about packet mutability
+                 Login modLogin = new Login( login.getEntityId(),login.getGameMode(), login.getDimension(), login.getSeed(),
+-                        login.getDifficulty(), login.getMaxPlayers(), login.getLevelType(), login.getViewDistance(), login.isReducedDebugInfo(), login.isNormalRespawn() );
++                        login.getDifficulty(), login.getMaxPlayers(), login.getLevelType(), login.getViewDistance(), login.isReducedDebugInfo(), login.isNormalRespawn(), login.isDebug(), login.isFlat(), /* ForkMC 20w20a+ */ login.getDimensionCodecName(), login.getCodecTag(), /* ForkMC 20w21a+ */ login.getWorldNamesList(), login.getWorldName(), /* ForkMC 20w22a+ */ login.getOldGameMode() /* ForkMC 1.16 Pre6+ */);
++
+                 user.unsafe().sendPacket(modLogin);
+ 
+                 // Only send if we're in the same dimension
+                 if (user.getDimension() == login.getDimension()) {
+-                    user.unsafe().sendPacket( new Respawn(user.getDimension() == 0 ? -1 : 0, login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType()));
++                    user.unsafe().sendPacket( new Respawn(user.getDimension() == 0 ? -1 : 0, login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType(), false, /* ForkMC 20w18a+ */ login.isDebug(), login.isFlat(), /* ForkMC 20w20a+ */ login.getDimensionCodecName(), /* ForkMC 20w21a+ */ login.getWorldName(), /* ForkMC 20w22a+ */ login.getOldGameMode() /* ForkMC 1.16 Pre6+ */));
+                 }
+             }
+             // Waterfall end
+-            user.unsafe().sendPacket( new Respawn( login.getDimension(), login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType() ) );
++            user.unsafe().sendPacket( new Respawn( login.getDimension(), login.getSeed(), login.getDifficulty(), login.getGameMode(), login.getLevelType(), false,  /* ForkMC 20w18a+ */ login.isDebug(), login.isFlat(), /* ForkMC 20w20a+ */ login.getDimensionCodecName(), /* ForkMC 20w21a+ */ login.getWorldName(), /* ForkMC 20w22a+ */ login.getOldGameMode() /* ForkMC 1.16 Pre6+ */));
+             if ( user.getPendingConnection().getVersion() >= ProtocolConstants.MINECRAFT_1_14 )
+             {
+                 user.unsafe().sendPacket( new ViewDistance( login.getViewDistance() ) );
+diff --git a/proxy/src/main/java/net/md_5/bungee/UserConnection.java b/proxy/src/main/java/net/md_5/bungee/UserConnection.java
+index 87cff4ff..579978f8 100644
+--- a/proxy/src/main/java/net/md_5/bungee/UserConnection.java
++++ b/proxy/src/main/java/net/md_5/bungee/UserConnection.java
+@@ -465,7 +465,7 @@ public final class UserConnection implements ProxiedPlayer
+ 
+     private void sendMessage(ChatMessageType position, String message)
+     {
+-        unsafe().sendPacket( new Chat( message, (byte) position.ordinal() ) );
++        unsafe().sendPacket( new Chat( message, (byte) position.ordinal(), new UUID( 0, 0 ) /* ForkMC 20w21a+ */ ) );
+     }
+ 
+     @Override
+diff --git a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
+index 37ea35e3..0905ea82 100644
+--- a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
++++ b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
+@@ -536,7 +536,7 @@ public class InitialHandler extends PacketHandler implements PendingConnection
+                             userCon.setCompressionThreshold( BungeeCord.getInstance().config.getCompressionThreshold() );
+                             userCon.init();
+ 
+-                            unsafe.sendPacket( new LoginSuccess( getUniqueId().toString(), getName() ) ); // With dashes in between
++                            unsafe.sendPacket( new LoginSuccess( getUniqueId().toString(), getName(), getVersion() ) ); // With dashes in between - ForkMC 20w12a change - add getVersion()
+                             ch.setProtocol( Protocol.GAME );
+ 
+                             ch.getHandle().pipeline().get( HandlerBoss.class ).setHandler( new UpstreamBridge( bungee, userCon ) );
+diff --git a/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap.java b/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap.java
+index bc1de55a..ef2a66fa 100644
+--- a/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap.java
++++ b/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap.java
+@@ -67,6 +67,8 @@ public abstract class EntityMap
+             case ProtocolConstants.MINECRAFT_1_15_1:
+             case ProtocolConstants.MINECRAFT_1_15_2:
+                 return EntityMap_1_15.INSTANCE;
++            case ProtocolConstants.MINECRAFT_1_16:
++                return EntityMap_1_16.INSTANCE;
+         }
+         throw new RuntimeException( "Version " + version + " has no entity map" );
+     }
+diff --git a/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap_1_16.java b/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap_1_16.java
+new file mode 100644
+index 00000000..7c270dc9
+--- /dev/null
++++ b/proxy/src/main/java/net/md_5/bungee/entitymap/EntityMap_1_16.java
+@@ -0,0 +1,194 @@
++// ForkMC 1.16 Start
++package net.md_5.bungee.entitymap;
++
++import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
++import io.netty.buffer.ByteBuf;
++import net.md_5.bungee.BungeeCord;
++import net.md_5.bungee.UserConnection;
++import net.md_5.bungee.api.connection.ProxiedPlayer;
++import net.md_5.bungee.protocol.DefinedPacket;
++import net.md_5.bungee.protocol.ProtocolConstants;
++
++import java.util.UUID;
++
++class EntityMap_1_16 extends EntityMap
++{
++
++    static final EntityMap_1_16 INSTANCE = new EntityMap_1_16();
++
++    EntityMap_1_16()
++    {
++        addRewrite( 0x00, ProtocolConstants.Direction.TO_CLIENT, true ); // Spawn Object : PacketPlayOutSpawnEntity
++        addRewrite( 0x01, ProtocolConstants.Direction.TO_CLIENT, true ); // Spawn Experience Orb : PacketPlayOutSpawnEntityExperienceOrb
++        /* ForkMC (1.16: 1.16-pre1+ 0x03 -> 0x02) */  addRewrite( 0x02, ProtocolConstants.Direction.TO_CLIENT, true ); // Spawn Mob : PacketPlayOutSpawnEntityLiving
++        /* ForkMC (1.16: 1.16-pre1+ 0x04 -> 0x03) */  addRewrite( 0x03, ProtocolConstants.Direction.TO_CLIENT, true ); // Spawn Painting : PacketPlayOutSpawnEntityPainting
++        /* ForkMC (1.16: 1.16-pre1+ 0x05 -> 0x04) */  addRewrite( 0x04, ProtocolConstants.Direction.TO_CLIENT, true ); // Spawn Player : PacketPlayOutNamedEntitySpawn
++        /* ForkMC (1.16: 1.16-pre1+ 0x06 -> 0x05) */  addRewrite( 0x05, ProtocolConstants.Direction.TO_CLIENT, true ); // Animation : PacketPlayOutAnimation
++        /* ForkMC (1.16: 1.16-pre1+ 0x09 -> 0x08) */  addRewrite( 0x08, ProtocolConstants.Direction.TO_CLIENT, true ); // Block Break Animation : PacketPlayOutBlockBreakAnimation
++        /* ForkMC (1.16: 1.16-pre1+ 0x01C -> 0x1B) */  addRewrite( 0x1B, ProtocolConstants.Direction.TO_CLIENT, false ); // Entity Status : PacketPlayOutEntityStatus
++        /* ForkMC (1.16: 1.16-pre1+ 0x029 -> 0x28) */  addRewrite( 0x28, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Relative Move : PacketPlayOutRelEntityMove
++        /* ForkMC (1.16: 1.16-pre1+ 0x3A -> 0x29) */  addRewrite( 0x29, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Look and Relative Move : PacketPlayOutRelEntityMoveLook
++        /* ForkMC (1.16: 1.16-pre1+ 0x2B -> 0x2A) */  addRewrite( 0x2A, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Look : PacketPlayOutEntityLook
++        /* ForkMC (1.16: 1.16-pre1+ 0x2C -> 0x2B) */  addRewrite( 0x2B, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity : PacketPlayOutEntity
++        /* ForkMC (1.16: 1.16-pre1+ 0x39 -> 0x38) */  addRewrite( 0x38, ProtocolConstants.Direction.TO_CLIENT, true ); // Remove Entity Effect : PacketPlayOutRemoveEntityEffect
++        /* ForkMC (1.16: 1.16-pre1+ 0x3C -> 0x3B) */  addRewrite( 0x3B, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Head Look : PacketPlayOutEntityHeadRotation
++        /* ForkMC (1.16: 1.16-pre1+ 0x3F -> 0x3D) */  addRewrite( 0x3D, ProtocolConstants.Direction.TO_CLIENT, true ); // Camera : PacketPlayOutCamera
++        addRewrite( 0x44, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Metadata : PacketPlayOutEntityMetadata
++        addRewrite( 0x45, ProtocolConstants.Direction.TO_CLIENT, false ); // Attach Entity : PacketPlayOutAttachEntity
++        addRewrite( 0x46, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Velocity : PacketPlayOutEntityVelocity
++        addRewrite( 0x47, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Equipment : PacketPlayOutEntityEquipment
++        addRewrite( 0x4B, ProtocolConstants.Direction.TO_CLIENT, true ); // Set Passengers : PacketPlayOutMount
++        /* ForkMC (1.16: 1.16-pre1+ 0x56 -> 0x55) */  addRewrite( 0x55, ProtocolConstants.Direction.TO_CLIENT, true ); // Collect Item : PacketPlayOutCollect
++        /* ForkMC (1.16: 1.16-pre1+ 0x57 -> 0x56) */  addRewrite( 0x56, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Teleport : PacketPlayOutEntityTeleport
++        /* ForkMC (1.16: 1.16-pre1+ 0x59 -> 0x58) */  addRewrite( 0x58, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Properties : PacketPlayOutUpdateAttributes
++        /* ForkMC (1.16: 1.16-pre1+ 0x5A -> 0x59) */  addRewrite( 0x59, ProtocolConstants.Direction.TO_CLIENT, true ); // Entity Effect : PacketPlayOutEntityEffect
++
++        addRewrite( 0x0E, ProtocolConstants.Direction.TO_SERVER, true ); // Use Entity : PacketPlayInUseEntity
++        /* ForkMC (1.16: 20w16a+ 0x1B -> 0x1C) */  addRewrite( 0x1C, ProtocolConstants.Direction.TO_SERVER, true ); // Entity Action : PacketPlayInEntityAction
++    }
++
++    @Override
++    @SuppressFBWarnings("DLS_DEAD_LOCAL_STORE")
++    public void rewriteClientbound(ByteBuf packet, int oldId, int newId, int protocolVersion)
++    {
++        super.rewriteClientbound( packet, oldId, newId );
++
++        // Special cases
++        int readerIndex = packet.readerIndex();
++        int packetId = DefinedPacket.readVarInt( packet );
++        int packetIdLength = packet.readerIndex() - readerIndex;
++        int jumpIndex = packet.readerIndex();
++        switch ( packetId )
++        {
++            case 0x45 /* Attach Entity : PacketPlayOutAttachEntity */:
++                rewriteInt( packet, oldId, newId, readerIndex + packetIdLength + 4 );
++                break;
++            /* ForkMC (1.16: 1.16-pre1+ 0x56 -> 0x55) */ case 0x55 /* Collect Item : PacketPlayOutCollect */:
++            DefinedPacket.readVarInt( packet );
++            rewriteVarInt( packet, oldId, newId, packet.readerIndex() );
++            break;
++            /* ForkMC (1.16: 1.16-pre1+ 0x4C -> 0x4B) */ case 0x4B /* Set Passengers : PacketPlayOutMount */:
++            DefinedPacket.readVarInt( packet );
++            jumpIndex = packet.readerIndex();
++            // Fall through on purpose to int array of IDs
++            /* ForkMC (1.16: 1.16-pre1+ 0x38 -> 0x37) */ case 0x37 /* Destroy Entities : PacketPlayOutEntityDestroy */:
++            int count = DefinedPacket.readVarInt( packet );
++            int[] ids = new int[ count ];
++            for ( int i = 0; i < count; i++ )
++            {
++                ids[i] = DefinedPacket.readVarInt( packet );
++            }
++            packet.readerIndex( jumpIndex );
++            packet.writerIndex( jumpIndex );
++            DefinedPacket.writeVarInt( count, packet );
++            for ( int id : ids )
++            {
++                if ( id == oldId )
++                {
++                    id = newId;
++                } else if ( id == newId )
++                {
++                    id = oldId;
++                }
++                DefinedPacket.writeVarInt( id, packet );
++            }
++            break;
++            case 0x00 /* Spawn Object : PacketPlayOutSpawnEntity */:
++                DefinedPacket.readVarInt( packet );
++                DefinedPacket.readUUID( packet );
++                int type = DefinedPacket.readVarInt( packet );
++
++                if ( type == 2 || type == 102 || type == 72 ) // arrow, fishing_bobber or spectral_arrow
++                {
++                    if ( type == 2 || type == 72 ) // arrow or spectral_arrow
++                    {
++                        oldId = oldId + 1;
++                        newId = newId + 1;
++                    }
++
++                    packet.skipBytes( 26 ); // double, double, double, byte, byte
++                    int position = packet.readerIndex();
++                    int readId = packet.readInt();
++                    if ( readId == oldId )
++                    {
++                        packet.setInt( position, newId );
++                    } else if ( readId == newId )
++                    {
++                        packet.setInt( position, oldId );
++                    }
++                }
++                break;
++            /* ForkMC (1.16: 1.16-pre1+ 0x05 -> 0x04) */ case 0x04 /* Spawn Player : PacketPlayOutNamedEntitySpawn */:
++            DefinedPacket.readVarInt( packet ); // Entity ID
++            int idLength = packet.readerIndex() - readerIndex - packetIdLength;
++            UUID uuid = DefinedPacket.readUUID( packet );
++            ProxiedPlayer player;
++            if ( ( player = BungeeCord.getInstance().getPlayerByOfflineUUID( uuid ) ) != null )
++            {
++                int previous = packet.writerIndex();
++                packet.readerIndex( readerIndex );
++                packet.writerIndex( readerIndex + packetIdLength + idLength );
++                DefinedPacket.writeUUID( player.getUniqueId(), packet );
++                packet.writerIndex( previous );
++            }
++            break;
++            /* ForkMC (1.16: 1.16-pre1+ 0x33 -> 0x32) */ case 0x32 /* Combat Event : PacketPlayOutCombatEvent */:
++            int event = packet.readUnsignedByte();
++            if ( event == 1 /* End Combat*/ )
++            {
++                DefinedPacket.readVarInt( packet );
++                rewriteInt( packet, oldId, newId, packet.readerIndex() );
++            } else if ( event == 2 /* Entity Dead */ )
++            {
++                int position = packet.readerIndex();
++                rewriteVarInt( packet, oldId, newId, packet.readerIndex() );
++                packet.readerIndex( position );
++                DefinedPacket.readVarInt( packet );
++                rewriteInt( packet, oldId, newId, packet.readerIndex() );
++            }
++            break;
++            /* ForkMC (1.16: 1.16-pre1+ 0x45 -> 0x44) */ case 0x44 /* EntityMetadata : PacketPlayOutEntityMetadata */:
++            DefinedPacket.readVarInt( packet ); // Entity ID
++            rewriteMetaVarInt( packet, oldId + 1, newId + 1, 7, protocolVersion ); // fishing hook
++            /*
++             * ForkMC (1.16: 20w12a+)
++             * metaVarInt was shifted to 8 from 16 and 16 omitted, previously:
++             * rewriteMetaVarInt( packet, oldId, newId, 8, protocolVersion ); // fireworks (et al)
++             * */
++            rewriteMetaVarInt( packet, oldId, newId, 8, protocolVersion ); // guardian beam
++            break;
++            /* ForkMC (1.16: 1.16-pre1+ 0x51 -> 0x50) */ case 0x50 /* Entity Sound Effect : PacketPlayOutEntitySound */:
++            DefinedPacket.readVarInt( packet );
++            DefinedPacket.readVarInt( packet );
++            rewriteVarInt( packet, oldId, newId, packet.readerIndex() );
++            break;
++        }
++        packet.readerIndex( readerIndex );
++    }
++
++    @Override
++    public void rewriteServerbound(ByteBuf packet, int oldId, int newId)
++    {
++        super.rewriteServerbound( packet, oldId, newId );
++        // Special cases
++        int readerIndex = packet.readerIndex();
++        int packetId = DefinedPacket.readVarInt( packet );
++        int packetIdLength = packet.readerIndex() - readerIndex;
++
++        if ( packetId == 0x2C /* ForkMC 20w16a+ 0x2B -> 0x2C Spectate : PacketPlayInSpectate */ && !BungeeCord.getInstance().getConfig().isIpForward() )
++        {
++            UUID uuid = DefinedPacket.readUUID( packet );
++            ProxiedPlayer player;
++            if ( ( player = BungeeCord.getInstance().getPlayer( uuid ) ) != null )
++            {
++                int previous = packet.writerIndex();
++                packet.readerIndex( readerIndex );
++                packet.writerIndex( readerIndex + packetIdLength );
++                DefinedPacket.writeUUID( ( (UserConnection) player ).getPendingConnection().getOfflineId(), packet );
++                packet.writerIndex( previous );
++            }
++        }
++        packet.readerIndex( readerIndex );
++    }
++}
++// ForkMC 1.16 End
+diff --git a/query/pom.xml b/query/pom.xml
+index 48eaf208..eb068344 100644
+--- a/query/pom.xml
++++ b/query/pom.xml
+@@ -6,13 +6,13 @@
+     <parent>
+         <groupId>net.bennocraft.forkmc</groupId>
+         <artifactId>forkmc-parent</artifactId>
+-        <version>1.15-SNAPSHOT</version>
++        <version>1.16-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+     <groupId>net.bennocraft.forkmc</groupId>
+     <artifactId>forkmc-query</artifactId>
+-    <version>1.15-SNAPSHOT</version>
++    <version>1.16-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>ForkMC-Query</name>
+-- 
+2.25.1
+

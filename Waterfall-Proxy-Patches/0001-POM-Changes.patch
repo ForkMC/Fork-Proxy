@@ -1,0 +1,772 @@
+From 7a01b37224538d9896a27dfe1951ba00b1c3eab4 Mon Sep 17 00:00:00 2001
+From: Benno van Dorst <everettallen30@gmail.com>
+Date: Sat, 15 Feb 2020 22:40:02 -0600
+Subject: [PATCH] POM-Changes
+
+
+diff --git a/api/pom.xml b/api/pom.xml
+index 705b7279..07897a44 100644
+--- a/api/pom.xml
++++ b/api/pom.xml
+@@ -4,42 +4,42 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-api</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-api</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-API</name>
++    <name>ForkMC-API</name>
+     <description>API implemented by the Elastic Portal Suite</description>
+ 
+     <dependencies>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-chat</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-chat</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-config</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-config</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-event</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-event</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-protocol</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-protocol</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+diff --git a/bootstrap/pom.xml b/bootstrap/pom.xml
+index 2876d8d6..c52bda72 100644
+--- a/bootstrap/pom.xml
++++ b/bootstrap/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-bootstrap</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-bootstrap</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Bootstrap</name>
+-    <description>Java 1.6 loader for Waterfall</description>
++    <name>ForkMC-Bootstrap</name>
++    <description>Java 1.6 loader for ForkMC</description>
+ 
+     <properties>
+         <maven.deploy.skip>true</maven.deploy.skip>
+@@ -29,15 +29,15 @@
+ 
+     <dependencies>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-proxy</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-proxy</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+     </dependencies>
+ 
+     <build>
+-        <finalName>Waterfall</finalName>
++        <finalName>ForkMC</finalName>
+         <plugins>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+diff --git a/chat/pom.xml b/chat/pom.xml
+index 0bd76ea5..340f5bb5 100644
+--- a/chat/pom.xml
++++ b/chat/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-chat</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-chat</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Chat</name>
+-    <description>Minecraft JSON chat API intended for use with Waterfall</description>
++    <name>ForkMC-Chat</name>
++    <description>Minecraft JSON chat API intended for use with ForkMC</description>
+ 
+     <dependencies>
+         <dependency>
+diff --git a/config/pom.xml b/config/pom.xml
+index 4bf7237f..aecc12bd 100644
+--- a/config/pom.xml
++++ b/config/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-config</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-config</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Config</name>
+-    <description>Generic java configuration API intended for use with Waterfall</description>
++    <name>ForkMC-Config</name>
++    <description>Generic java configuration API intended for use with ForkMC</description>
+ 
+     <dependencies>
+         <dependency>
+diff --git a/event/pom.xml b/event/pom.xml
+index 5eb97c1f..e240b786 100644
+--- a/event/pom.xml
++++ b/event/pom.xml
+@@ -4,17 +4,17 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-event</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-event</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Event</name>
+-    <description>Generic java event dispatching API intended for use with Waterfall.</description>
++    <name>ForkMC-Event</name>
++    <description>Generic java event dispatching API intended for use with ForkMC.</description>
+ </project>
+diff --git a/log/pom.xml b/log/pom.xml
+index 23dacb1d..5c5cd781 100644
+--- a/log/pom.xml
++++ b/log/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-log</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-log</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Log</name>
+-    <description>Simplistic and performant java.util.Logger based logger and console API designed for use with Waterfall and Minecraft related applications.</description>
++    <name>ForkMC-Log</name>
++    <description>Simplistic and performant java.util.Logger based logger and console API designed for use with ForkMC and Minecraft related applications.</description>
+ 
+     <dependencies>
+         <dependency>
+@@ -26,8 +26,8 @@
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-chat</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-chat</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+diff --git a/log4j/pom.xml b/log4j/pom.xml
+index f5267567..1042e092 100644
+--- a/log4j/pom.xml
++++ b/log4j/pom.xml
+@@ -3,19 +3,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-log4j</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-log4j</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Log</name>
+-    <description>Simplistic and performant Log4j2 based logger and console API designed for use with Waterfall and Minecraft related applications.</description>
++    <name>ForkMC-Log</name>
++    <description>Simplistic and performant Log4j2 based logger and console API designed for use with ForkMC and Minecraft related applications.</description>
+ 
+     <properties>
+         <log4j2.version>2.12.0</log4j2.version>
+diff --git a/module/cmd-alert/pom.xml b/module/cmd-alert/pom.xml
+index 9340d58a..f9c9969a 100644
+--- a/module/cmd-alert/pom.xml
++++ b/module/cmd-alert/pom.xml
+@@ -4,14 +4,14 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-module</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-module</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module-cmd-alert</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module-cmd-alert</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+diff --git a/module/cmd-find/pom.xml b/module/cmd-find/pom.xml
+index c7106fe9..eccc6959 100644
+--- a/module/cmd-find/pom.xml
++++ b/module/cmd-find/pom.xml
+@@ -4,14 +4,14 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-module</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-module</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module-cmd-find</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module-cmd-find</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+diff --git a/module/cmd-list/pom.xml b/module/cmd-list/pom.xml
+index e14d18e7..b877613f 100644
+--- a/module/cmd-list/pom.xml
++++ b/module/cmd-list/pom.xml
+@@ -4,14 +4,14 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-module</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-module</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module-cmd-list</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module-cmd-list</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+diff --git a/module/cmd-send/pom.xml b/module/cmd-send/pom.xml
+index 68f526b1..6aead5e4 100644
+--- a/module/cmd-send/pom.xml
++++ b/module/cmd-send/pom.xml
+@@ -4,14 +4,14 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-module</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-module</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module-cmd-send</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module-cmd-send</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+diff --git a/module/cmd-server/pom.xml b/module/cmd-server/pom.xml
+index d8ebf472..0ef0b9fd 100644
+--- a/module/cmd-server/pom.xml
++++ b/module/cmd-server/pom.xml
+@@ -4,14 +4,14 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-module</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-module</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module-cmd-server</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module-cmd-server</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+diff --git a/module/pom.xml b/module/pom.xml
+index 261c8d75..838adbce 100644
+--- a/module/pom.xml
++++ b/module/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>pom</packaging>
+ 
+-    <name>Waterfall Modules</name>
+-    <description>Parent project for all Waterfall modules.</description>
++    <name>ForkMC Modules</name>
++    <description>Parent project for all ForkMC modules.</description>
+ 
+     <modules>
+         <module>cmd-alert</module>
+@@ -28,15 +28,15 @@
+     </modules>
+ 
+     <properties>
+-        <module.author>WaterfallMC</module.author>
++        <module.author>hypercubemc-github</module.author>
+         <maven.deploy.skip>true</maven.deploy.skip>
+         <maven.javadoc.skip>true</maven.javadoc.skip>
+     </properties>
+ 
+     <dependencies>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-api</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-api</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+diff --git a/module/reconnect-yaml/pom.xml b/module/reconnect-yaml/pom.xml
+index c29ac52f..265946dc 100644
+--- a/module/reconnect-yaml/pom.xml
++++ b/module/reconnect-yaml/pom.xml
+@@ -4,14 +4,14 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-module</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-module</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-module-reconnect-yaml</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-module-reconnect-yaml</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+diff --git a/native/pom.xml b/native/pom.xml
+index f8b549dc..d0a68650 100644
+--- a/native/pom.xml
++++ b/native/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-native</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-native</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Native</name>
+-    <description>Optional native code to speed up and enhance Waterfall functionality.</description>
++    <name>ForkMC-Native</name>
++    <description>Optional native code to speed up and enhance ForkMC functionality.</description>
+ 
+     <dependencies>
+         <dependency>
+diff --git a/pom.xml b/pom.xml
+index c9531d39..0a322a27 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -4,24 +4,24 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-super</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-super</artifactId>
+         <version>dev-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-parent</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-parent</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>pom</packaging>
+ 
+-    <name>Waterfall-Parent</name>
+-    <description>Parent project for all Waterfall modules.</description>
+-    <url>https://github.com/WaterfallMC/Waterfall</url>
++    <name>forkmc-parent</name>
++    <description>Parent project for all ForkMC modules.</description>
++    <url>https://github.com/hypercubemc-github/ForkMC</url>
+     <inceptionYear>2015</inceptionYear>
+     <organization>
+-        <name>WaterfallMC</name>
+-        <url>https://github.com/WaterfallMC</url>
++        <name>ForkMC</name>
++        <url>https://github.com/ForkMC</url>
+     </organization>
+     <licenses>
+         <license>
+@@ -65,17 +65,17 @@
+     </modules>
+ 
+     <scm>
+-        <connection>scm:git:git@github.com:com:WaterfallMC/Waterfall.git</connection>
+-        <developerConnection>scm:git:git@github.com:WaterfallMC/Waterfall.git</developerConnection>
+-        <url>git@github.com:WaterfallMC/Waterfall.git</url>
++        <connection>scm:git:git@github.com:com:ForkMC/Fork-Proxy.git</connection>
++        <developerConnection>scm:git:git@github.com:ForkMC/Fork-Proxy.git</developerConnection>
++        <url>git@github.com:ForkMC/Fork-Proxy.git</url>
+     </scm>
+     <issueManagement>
+         <system>GitHub</system>
+-        <url>https://github.com/PaperMC/Waterfall/issues</url>
++        <url>https://github.com/ForkMC/Fork-Proxy/issues</url>
+     </issueManagement>
+     <ciManagement>
+         <system>jenkins</system>
+-        <url>https://papermc.io/ci/job/Waterfall/</url>
++        <url>https://ci.bennocraft.net</url>
+     </ciManagement>
+ 
+     <distributionManagement>
+@@ -320,8 +320,8 @@
+                                 </goals>
+                                 <inherited>false</inherited>
+                                 <configuration>
+-                                    <doctitle>Waterfall ${project.version} API</doctitle>
+-                                    <windowtitle>Waterfall ${project.version} API</windowtitle>
++                                    <doctitle>ForkMC ${project.version} API</doctitle>
++                                    <windowtitle>ForkMC ${project.version} API</windowtitle>
+                                     <sourcepath>
+                                         api/target/generated-sources/delombok;
+                                         chat/target/generated-sources/delombok
+diff --git a/protocol/pom.xml b/protocol/pom.xml
+index 4592e2b3..0c51b315 100644
+--- a/protocol/pom.xml
++++ b/protocol/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-protocol</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-protocol</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Protocol</name>
+-    <description>Minimal implementation of the Minecraft protocol for use in Waterfall</description>
++    <name>ForkMC-Protocol</name>
++    <description>Minimal implementation of the Minecraft protocol for use in ForkMC</description>
+ 
+     <!-- We really shouldn't depend on external repositories, but at least this is the Central staging one -->
+     <repositories>
+@@ -41,8 +41,8 @@
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-chat</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-chat</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+diff --git a/proxy/pom.xml b/proxy/pom.xml
+index 0341a6bc..519f1a76 100644
+--- a/proxy/pom.xml
++++ b/proxy/pom.xml
+@@ -4,18 +4,18 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-proxy</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-proxy</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Proxy</name>
++    <name>ForkMC-Proxy</name>
+     <description>Proxy component of the Elastic Portal Suite</description>
+ 
+     <properties>
+@@ -36,14 +36,14 @@
+             <version>${netty.version}</version>
+             <scope>compile</scope>
+         </dependency>
+-        <!-- Waterfall Start - add Netty DNS resolver -->
++        <!-- ForkMC Start - add Netty DNS resolver -->
+         <dependency>
+             <groupId>io.netty</groupId>
+             <artifactId>netty-resolver-dns</artifactId>
+             <version>${netty.version}</version>
+             <scope>compile</scope>
+         </dependency>
+-        <!-- Waterfall End -->
++        <!-- ForkMC End -->
+         <dependency>
+             <groupId>io.netty</groupId>
+             <artifactId>netty-handler</artifactId>
+@@ -58,32 +58,32 @@
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-api</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-api</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-log4j</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-log4j</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-native</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-native</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-protocol</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-protocol</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-query</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-query</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+@@ -106,7 +106,7 @@
+             <scope>runtime</scope>
+         </dependency>
+ 
+-        <!-- Waterfall start - Console improvements -->
++        <!-- ForkMC start - Console improvements -->
+         <dependency>
+             <groupId>net.minecrell</groupId>
+             <artifactId>terminalconsoleappender</artifactId>
+@@ -118,7 +118,7 @@
+             <version>3.12.1</version>
+             <scope>runtime</scope>
+         </dependency>
+-        <!-- Waterfall end -->
++        <!-- ForkMC end -->
+     </dependencies>
+ 
+     <build>
+@@ -127,7 +127,7 @@
+                 <directory>src/main/resources</directory>
+                 <filtering>true</filtering>
+             </resource>
+-            <!-- Waterfall start - copy license files into jar -->
++            <!-- ForkMC start - copy license files into jar -->
+             <resource>
+                 <directory>../</directory>
+                 <includes>
+@@ -140,7 +140,7 @@
+                     <include>LICENSE.txt</include>
+                 </includes>
+             </resource>
+-            <!-- Waterfall end -->
++            <!-- ForkMC end -->
+         </resources>
+     </build>
+ </project>
+diff --git a/query/pom.xml b/query/pom.xml
+index c3a29122..48eaf208 100644
+--- a/query/pom.xml
++++ b/query/pom.xml
+@@ -4,19 +4,19 @@
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <parent>
+-        <groupId>io.github.waterfallmc</groupId>
+-        <artifactId>waterfall-parent</artifactId>
++        <groupId>net.bennocraft.forkmc</groupId>
++        <artifactId>forkmc-parent</artifactId>
+         <version>1.15-SNAPSHOT</version>
+         <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>io.github.waterfallmc</groupId>
+-    <artifactId>waterfall-query</artifactId>
++    <groupId>net.bennocraft.forkmc</groupId>
++    <artifactId>forkmc-query</artifactId>
+     <version>1.15-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Waterfall-Query</name>
+-    <description>Minecraft query implementation based on the Waterfall API.</description>
++    <name>ForkMC-Query</name>
++    <description>Minecraft query implementation based on the ForkMC API.</description>
+ 
+     <dependencies>
+         <dependency>
+@@ -26,8 +26,8 @@
+             <scope>compile</scope>
+         </dependency>
+         <dependency>
+-            <groupId>io.github.waterfallmc</groupId>
+-            <artifactId>waterfall-api</artifactId>
++            <groupId>net.bennocraft.forkmc</groupId>
++            <artifactId>forkmc-api</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+-- 
+2.25.1
+
