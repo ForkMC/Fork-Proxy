@@ -1,4 +1,4 @@
-ForkMC [![Build Status](https://travis-ci.com/ForkMC/Fork-Proxy.svg?branch=master)](https://travis-ci.com/ForkMC/Fork-Proxy)
+ForkMC
 =========
 A patch-based fork of Waterfall, the Minecraft server proxy, with a few changes.
 =========
