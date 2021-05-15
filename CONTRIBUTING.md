@@ -1,6 +1,6 @@
 Contributing to ForkMC
 ==========================
-WaterfallMC has a very lenient policy towards PRs, but would prefer that you try and adhere to the following guidelines.
+ForkMC has a very lenient policy towards PRs, but would prefer that you try and adhere to the following guidelines.
 
 ## Understanding Patches
 Patches to ForkMC are very simple, but center around the directory 'ForkMC-Proxy'
